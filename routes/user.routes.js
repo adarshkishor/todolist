@@ -9,6 +9,8 @@ router.get('/tokengen',validatetoken.validateToken,async (req,res)=>{
    res.send(req.decoded)
 })
 router.post('/create',validatetoken.validateToken, userController.create)
-
+router.put("/:id/update", userController.updateTodo);
+router.delete("/:id/delete", userController.deleteTodo);
+router.get("/gettodos", validatetoken.validateToken, userController.getTodos);
 
 module.exports = router;

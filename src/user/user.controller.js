@@ -55,3 +55,71 @@ exports.create =  async (req, res) => {
     
     
 }
+exports.updateTodo = async (req, res) => {
+
+    //const todo = req.todo
+
+    try{
+
+    const todoobj = await todo.findByIdAndUpdate(req.params.id,req.body
+
+   
+
+    ,{useFindAndModify : true,new:true})
+
+    res.send(todoobj)
+
+}
+
+catch(e){
+
+    console.log(e)
+
+}
+}
+exports.deleteTodo = async (req, res) => {
+
+    try{
+
+        const todoobj = await todo.findByIdAndUpdate(req.params.id,{is_delete:true}
+
+       
+
+        ,{useFindAndModify : true,new:true})
+
+        res.send(todoobj)
+
+    }
+
+    catch(e){
+
+        console.log(e)
+
+    }
+
+};
+exports.getTodos = async (req,res)=>{
+
+    try{
+
+
+
+        const todoobj = await todo.find({is_delete :false,userid : req.decoded.id})
+
+       
+
+
+
+        res.send(todoobj)
+
+    }
+
+    catch(e){
+
+        console.log(e)
+
+    }
+
+     
+
+}
