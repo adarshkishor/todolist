@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use('/users',userRoute)
-mongoose.connect('mongodb://127.0.0.1:27017/test')
+mongoose.connect('mongodb+srv://adharsh_test:adharsh_test@cluster0.iiya7.mongodb.net/test')
     .then(() => {
         console.log('Database connections succesful')
     }
